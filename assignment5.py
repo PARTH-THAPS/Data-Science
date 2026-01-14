@@ -69,6 +69,9 @@ world_happiness_file = world_happiness_file.fillna(
 )
 
 
+
+# 
+
 print("\n=== Missing Values AFTER Fixing (Economic Freedom) ===")
 print(economic_freedom_file.isnull().sum())
 
