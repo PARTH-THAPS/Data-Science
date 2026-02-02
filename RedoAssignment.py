@@ -1,6 +1,10 @@
 import array
 import numpy as np
+import pandas as pd
+import requests as req
+from bs4 import BeautifulSoup
 
+# Asssignment 1
 arr = array.array('d', [1.5, 2.8, 0.2, 3.1])
 numpArr = np.array([2, 5, 34, 67])
 
@@ -115,3 +119,78 @@ print("Keys", medals.keys())
 print("Values", medals.values())
 
 print(medals)
+
+# Array
+matrix = [[2, 4, 3], [1, 5, 7]]
+
+print(matrix)
+
+for row in matrix:
+    print(row)
+
+# replacing
+for i in range(len(matrix)):
+    for j in range(len(matrix[i])):
+        if matrix[i][j] == 5:
+            matrix[i][j] = 0
+
+# Sum of the column
+sum_of_first_column = 0
+
+for i in range(len(matrix)):
+    sum_of_first_column = sum_of_first_column+matrix[i][0]
+
+print(sum_of_first_column)
+
+# sumo of Row
+sum_of_first_row = 0
+for i in range(len(matrix[0])):
+    sum_of_first_row = sum_of_first_row+matrix[0][i]
+
+print(sum_of_first_row)
+
+
+# Assignment 2 a
+
+data = {
+    'country': ['NOR', 'GER', 'CHN'],
+    'Gold': [16, 12, 9],
+    'Silver': [8, 10, 4],
+    'Bronze': [13, 5, 2]
+}
+
+df = pd.DataFrame(data)
+
+print(df)
+
+print(df[['country', 'Silver']])
+print(df[df['country'] == 'CHN'])
+
+print(df[df["Gold"] > 10][["country", "Gold"]])
+print(df.sort_values(by='Bronze', ascending=False))
+
+# Assignment 2 b
+File = pd.read_csv("/Users/user/Downloads/Beijing1.csv", sep=';')
+
+print(File)
+
+File["Total"] = File["Gold"] + File["Silver"] + File["Bronze"]
+
+File.sort_values(by=["Total", "Gold"], ascending=False)
+print(File)
+
+
+# assignment 3  (Need To make changes)
+
+# url = "https://simple.wikipedia.org/w/api.php"
+
+# params = {
+#     "action": "parse",
+#     "page": "List_of_countries_by_continents",
+#     "format": "json"
+# }
+
+# response = req.get(url, params=params)
+# data = response.json()
+
+# print(data.keys())

@@ -7,6 +7,8 @@ url = "https://simple.wikipedia.org/wiki/List_of_countries_by_continents"
 response = requests.get(url, headers=headers)
 soup = BeautifulSoup(response.text, "html.parser")
 
+print(response)
+
 continents = ["Africa", "Asia", "Europe",
               "North America", "South America", "Oceania"]
 
