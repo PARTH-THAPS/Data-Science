@@ -26,3 +26,5 @@ print("Documents ranked by relevance:\n")
 
 for idx in ranked_indices:
     print(doc_names[idx], similarity_scores[idx])
+
+
